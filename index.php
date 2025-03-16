@@ -23,7 +23,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Vintage Movie</a>
         <div class="d-flex">
-          <a href="login.php" class="btn btn-primary">Login</a>
+          <a href="login.php" class="btn btn-primary">Admin Login</a>
         </div>
       </div>
     </nav>
