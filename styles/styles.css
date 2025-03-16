@@ -1,0 +1,91 @@
+/* General Styling */
+body {
+  font-family: "Ubuntu", serif;
+  background-color: rgb(28, 28, 28);
+}
+
+.title {
+  color: whitesmoke;
+}
+
+/* Movie Card Layout */
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* Card Header */
+.card-header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Movie Card Body */
+.movie-body {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Movie Image */
+.movie-img {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+/* Movie Description */
+.movie-description {
+  flex: 1;
+  min-width: 150px;
+}
+
+.movie-text {
+  flex-grow: 1;
+  display: inline-block;
+}
+
+/* View Button */
+.view-details {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+}
+
+/* Studio Details */
+.studioDetails {
+  background-color: #eaebed;
+}
+
+.studioTitle {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+  .movie-body {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .movie-img {
+      margin-bottom: 10px;
+  }
+
+  .view-details {
+      width: 100%;
+  }
+}
