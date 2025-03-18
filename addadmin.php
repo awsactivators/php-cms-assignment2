@@ -1,9 +1,31 @@
+<?php
+  include('connection.php');
+  
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
+
+
+    $query = "INSERT INTO users (email, password, username) 
+            VALUES ('$email', '$password', '$username')";
+
+    $result = mysqli_query($connect, $query);
+    if ($result) {
+        header("Location:users.php?success=Admin added successfully!");
+        exit();
+    } else {
+        echo "Failed: " . mysqli_error($connect);
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Add Admin</title>
 
     <!-- Bootstrap CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,9 +37,19 @@
 </head>
 
 <body>
+    <?php
+    include 'adminnav.php';
+    ?>
+
+    <?php 
+        include('connection.php');
+        $query = 'SELECT * FROM users';
+        $users = mysqli_query($connect, $query);
+    ?>
+
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card p-4 shadow-lg border-0 rounded-3" style="max-width: 400px; width: 100%;">
-            <h2 class="text-center mb-4">Admin Login</h2>
+            <h2 class="text-center mb-4">Add Admin</h2>
 
             <?php if (isset($_GET['error'])): ?>
                 <div class="alert alert-danger text-center">
@@ -25,26 +57,26 @@
                 </div>
             <?php endif; ?>
 
-            <form action="authenticate.php" method="POST">
+            <form action="addadmin.php" method="POST" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
-                    <input type="username" name="username" class="form-control" required>
+                    <input type="username" name="username" class="form-control">
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" name="email" class="form-control" required>
+                    <label for="email" class="form-label">Email Id:</label>
+                    <input type="email" name="email" class="form-control">
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <input type="password" name="password" class="form-control">
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary w-50">Login</button>
-                    <a href="index.php" class="btn btn-secondary w-45">Cancel</a>
+                    <button type="submit" class="btn btn-primary w-50">Add</button>
+                    <a href="admin.php" class="btn btn-secondary w-45">Cancel</a>
                 </div>
             </form>
         </div>

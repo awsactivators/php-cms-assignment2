@@ -8,8 +8,8 @@ body {
   color: whitesmoke;
 }
 
-/* Movie Card Layout */
-.movie-card {
+/*Card Layout */
+.movie-card, .user-card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -28,7 +28,7 @@ body {
 }
 
 /* Movie Card Body */
-.movie-body {
+.movie-body, .user-body {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -58,7 +58,6 @@ body {
 /* View Button */
 .view-details {
   display: block;
-  width: 50%;
   margin: 10px auto;
 }
 
@@ -72,6 +71,22 @@ body {
   font-size: 18px;
 }
 
+/* Admin Dashboard*/
+.btns{
+  gap: 20px;
+}
+
+.subtitle{
+  color: whitesmoke;
+}
+
+.edit-btn, .delete-btn, .view-movie{
+  margin: 10px auto;
+}
+
+.dlt-btn{
+  margin-left: 20px
+}
 
 /* Responsiveness */
 @media screen and (max-width: 768px) {
@@ -89,3 +104,4 @@ body {
       width: 100%;
   }
 }
+
