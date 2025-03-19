@@ -29,7 +29,7 @@
     </nav>
 
     <div class="container mt-4">
-        <h1 class="text-center mb-4 title">Movie List</h1>
+        <h1 class="text-center mb-4 title">Movies</h1>
         <div class="row" id="movieContainer">
             <?php
             include './connection.php';
@@ -62,6 +62,7 @@
                                 <button class="btn btn-primary view-details" 
                                     data-title="' . $movie['title'] . '" 
                                     data-img="' . $movie['imgurl'] . '" 
+                                    data-language="' . $movie['original_language'] . '"
                                     data-description="' . $movie['description'] . '" 
                                     data-release="' . $movie['release_date'] . '" 
                                     data-budget="' . $movie['budget'] . '" 
@@ -70,7 +71,7 @@
                                     data-studio="' . $movie['studio_name'] . '"
                                     data-country="' . $movie['studio_country'] . '"
                                     data-year="' . $movie['studio_year'] . '">
-                                    View All
+                                    View Details
                                 </button>
                             </div>
                         </div>
@@ -114,6 +115,7 @@
                 <div class="modal-body text-center">
                     <img id="movieImage" class="img-fluid mb-3">
                     <p id="movieDescription"></p>
+                    <p><strong>Language:</strong> <span id="movieLanguage"></span></p>
                     <p><strong>Release Date:</strong> <span id="movieRelease"></span></p>
                     <p><strong>Budget:</strong> $<span id="movieBudget"></span></p>
                     <p><strong>Revenue:</strong> $<span id="movieRevenue"></span></p>
