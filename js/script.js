@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // delete confirmation of movie
-  const deleteMovieButtons = document.querySelectorAll(".delete-btn");
+  const deleteMovieButton = document.querySelectorAll(".delete-btn");
   const movieToDelete = document.getElementById("movieToDelete");
   const deleteMovieId = document.getElementById("deleteMovieId");
 
-  deleteMovieButtons.forEach(button => {
+  deleteMovieButton.forEach(button => {
       button.addEventListener("click", function() {
           const movieTitle = this.getAttribute("data-title");
           const movieId = this.getAttribute("data-id");
@@ -67,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
     // delete confirmation of admin
-    const deleteAdminButtons = document.querySelectorAll('.dlt-btn');
+    const deleteAdminButton = document.querySelectorAll('.dlt-btn');
     const usernameToDelete = document.getElementById('usernameToDelete');
     const deleteUserId = document.getElementById('deleteUserId');
 
-    deleteAdminButtons.forEach(button => {
+    deleteAdminButton.forEach(button => {
         button.addEventListener('click', function() {
             const userId = this.getAttribute('data-id');
             const username = this.getAttribute('data-username');

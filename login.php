@@ -12,12 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card p-4 shadow-lg border-0 rounded-3" style="max-width: 400px; width: 100%;">
-            <h2 class="text-center mb-4">Admin Login</h2>
+        <div class='card p-4 login-card'>
+            <h2 class='text-center mb-4'>Admin Login</h2>
 
             <?php if (isset($_GET['error'])): ?>
                 <div class="alert alert-danger text-center">
@@ -26,11 +27,6 @@
             <?php endif; ?>
 
             <form action="authenticate.php" method="POST">
-
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username:</label>
-                    <input type="username" name="username" class="form-control" required>
-                </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>

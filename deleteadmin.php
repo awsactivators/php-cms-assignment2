@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        header("Location: users.php?success=User deleted successfully!");
+        header("Location: users.php");
         exit();
     } else {
         die("Failed to delete: " . mysqli_error($connect));

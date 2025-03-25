@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
 
   <div class="container-fluid">
     <a class="navbar-brand" href="admin.php">Vintage Movie</a>

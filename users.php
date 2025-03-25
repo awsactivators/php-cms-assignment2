@@ -36,7 +36,7 @@ $result = mysqli_query($connect, $query);
     <?php include 'adminnav.php'; ?>
 
     <div class="container mt-4">
-        <h1 class="text-center mb-4 title">Admin Management</h1>
+        <h1 class="text-center title">Admin Management</h1>
 
         <div class="row" id="userContainer">
             <?php while ($user = mysqli_fetch_assoc($result)): ?>
@@ -47,10 +47,9 @@ $result = mysqli_query($connect, $query);
                         </div>
                         <div class="card-body user-body">
                             <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-                            <p><strong>Password:</strong> <?php echo htmlspecialchars($user['password']); ?></p>
                             <div class="users-btns">
-                                <a href="editadmin.php?id=<?php echo $user['id']; ?>" class="btn btn-info edit-btn">Edit</a>
-                                <button type="button" class="btn btn-danger dlt-btn" 
+                                <a href="editadmin.php?id=<?php echo $user['id']; ?>" class="btn edit-btn">Edit</a>
+                                <button type="button" class="btn dlt-btn" 
                                     data-id="<?php echo $user['id']; ?>" 
                                     data-username="<?php echo htmlspecialchars($user['username']); ?>" 
                                     data-bs-toggle="modal" 
