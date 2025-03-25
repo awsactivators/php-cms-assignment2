@@ -19,17 +19,17 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Vintage Movie</a>
         <div class="d-flex">
-          <a href="login.php" class="btn btn-primary">Admin Login</a>
+          <a href="login.php" class="nav-link">Admin Login</a>
         </div>
       </div>
     </nav>
 
     <div class="container mt-4">
-        <h1 class="text-center mb-4 title">Movies</h1>
+        <h1 class="text-center title">Movies</h1>
         <div class="row" id="movieContainer">
             <?php
             include './connection.php';
@@ -48,9 +48,57 @@
 
             $movies = mysqli_query($connect, $query);
 
+            $languages = [
+                'af' => 'Afrikaans',
+                'ar' => 'Arabic',
+                'cn' => 'Chinese (Mandarin)',
+                'cs' => 'Czech',
+                'da' => 'Danish',
+                'de' => 'German',
+                'el' => 'Greek',
+                'en' => 'English',
+                'es' => 'Spanish',
+                'fa' => 'Persian (Farsi)',
+                'fr' => 'French',
+                'he' => 'Hebrew',
+                'hi' => 'Hindi',
+                'hu' => 'Hungarian',
+                'id' => 'Indonesian',
+                'is' => 'Icelandic',
+                'it' => 'Italian',
+                'ja' => 'Japanese',
+                'ko' => 'Korean',
+                'ky' => 'Kyrgyz',
+                'nb' => 'Norwegian Bokmål',
+                'nl' => 'Dutch',
+                'no' => 'Norwegian',
+                'pl' => 'Polish',
+                'ps' => 'Pashto',
+                'pt' => 'Portuguese',
+                'ro' => 'Romanian',
+                'ru' => 'Russian',
+                'sl' => 'Slovenian',
+                'sv' => 'Swedish',
+                'ta' => 'Tamil',
+                'te' => 'Telugu',
+                'th' => 'Thai',
+                'tr' => 'Turkish',
+                'vi' => 'Vietnamese',
+                'xx' => 'English',
+                'zh' => 'Chinese'
+            ];
+
+
             foreach ($movies as $movie) {
+                $language = "";
+                if (array_key_exists($movie['original_language'], $languages)) {
+                    $language = $languages[$movie['original_language']];
+                } else {
+                   
+                    $language = "English";
+                }
                 echo '
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card movie-card">
                         <div class="card-header text-center">
                             <h5>' . $movie['title'] . '</h5>
@@ -62,11 +110,11 @@
                                 <button class="btn btn-primary view-details" 
                                     data-title="' . $movie['title'] . '" 
                                     data-img="' . $movie['imgurl'] . '" 
-                                    data-language="' . $movie['original_language'] . '"
+                                    data-language="' . $language . '"
                                     data-description="' . $movie['description'] . '" 
                                     data-release="' . $movie['release_date'] . '" 
-                                    data-budget="' . $movie['budget'] . '" 
-                                    data-revenue="' . $movie['revenue'] . '" 
+                                    data-budget="' . (round($movie['budget'] / 1000000) + 1). ' Million" 
+                                    data-revenue="' .(round($movie['revenue'] / 1000000) + 1) .' Million" 
                                     data-rating="' . $movie['rating'] . '" 
                                     data-studio="' . $movie['studio_name'] . '"
                                     data-country="' . $movie['studio_country'] . '"

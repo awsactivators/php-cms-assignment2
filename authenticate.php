@@ -5,9 +5,9 @@ include 'connection.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($connect, $_POST['email']);
     $password = md5(mysqli_real_escape_string($connect, $_POST['password']));
-    $username = mysqli_real_escape_string($connect, $_POST['username']);
+    
 
-    $query = "SELECT * FROM users WHERE `username` = '$username' AND `email` = '$email' AND `password` = '$password'";
+    $query = "SELECT * FROM users WHERE `email` = '$email' AND `password` = '$password'";
 
     $result = mysqli_query($connect, $query);
 

@@ -40,7 +40,7 @@
         $result = mysqli_query($connect, $query);
 
         if ($result) {
-            header("Location: admin.php?success=Movie updated successfully!");
+            header("Location: admin.php");
             exit();
         } else {
             echo "Failed: " . mysqli_error($connect);
@@ -58,13 +58,14 @@
 
     <!-- Bootstrap CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
     <?php include 'adminnav.php'; ?>
 
     <div class="container my-5 d-flex justify-content-center">
-        <div class="card p-4 shadow-lg border-0 rounded-3" style="max-width: 400px; width: 100%;">
+        <div class="card p-4 edit-card">
             <h2 class="text-center mb-4">Edit Movie</h2>
 
             <form action="editmovie.php" method="POST" enctype="multipart/form-data">
