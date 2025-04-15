@@ -44,13 +44,16 @@
     <!-- Bootstrap CDN CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/styles.css">
+
+     <!-- FontAwesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
     <?php include 'adminnav.php'; ?>
 
     <div class="container my-5 d-flex justify-content-center">
-        <div class="card p-4 edit-card">
+        <div class="card p-4 edit-card login-card">
             <h2 class="text-center mb-4">Edit Admin</h2>
 
             <form action="editadmin.php" method="POST" enctype="multipart/form-data">

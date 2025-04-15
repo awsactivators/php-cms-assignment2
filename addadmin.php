@@ -35,6 +35,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+     <!-- FontAwesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
@@ -50,7 +53,7 @@
     ?>
 
     <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card p-4 add-admin-card">
+        <div class="card p-4 add-admin-card login-card">
             <h2 class="text-center mb-4">Add Admin</h2>
 
             <?php if (isset($_GET['error'])): ?>
